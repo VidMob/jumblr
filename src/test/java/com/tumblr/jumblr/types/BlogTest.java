@@ -23,7 +23,7 @@ public class BlogTest extends TypeTest {
     private String name = "name.com", title = "title", description = "desc";
     private Integer posts = 10, likes = 11, followers = 10;
     private Long updated = 123456L;
-    private Boolean ask = false, ask_anon = true;
+    private Boolean ask = false, ask_anon = true, primary = true;
 
     @Before
     public void setup() throws IOException {
@@ -37,6 +37,7 @@ public class BlogTest extends TypeTest {
         flat.put("ask", ask);
         flat.put("ask_anon", ask_anon);
         flat.put("followers", followers);
+        flat.put("primary", primary);
 
         Gson gson = new Gson();
         blog = gson.fromJson(flatSerialize(flat), Blog.class);
@@ -62,6 +63,7 @@ public class BlogTest extends TypeTest {
         assertEquals(title, blog.getTitle());
         assertEquals(name, blog.getName());
         assertEquals(followers, blog.getFollowersCount());
+        assertEquals(primary, blog.isPrimary());
     }
 
     @Test

@@ -14,7 +14,7 @@ public class Blog extends Resource {
     private String description;
     private int posts, likes, followers;
     private Long updated;
-    private boolean ask, ask_anon;
+    private boolean ask, ask_anon, primary;
 
     /**
      * Get the description of this blog
@@ -22,6 +22,14 @@ public class Blog extends Resource {
      */
     public String getDescription() {
         return this.description;
+    }
+
+    /**
+     * Is this the primary blog?
+     * @return boolean
+     */
+    public boolean isPrimary() {
+        return this.primary;
     }
 
     /**
